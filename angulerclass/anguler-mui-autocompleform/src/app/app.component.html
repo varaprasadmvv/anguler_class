@@ -1,0 +1,157 @@
+<div class="wrapper">
+  <h3>Very slow animation</h3>
+<mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
+  <mat-tab label="First">
+    <h3>this is Frist</h3><p>
+      
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum, temporibus ratione esse sint ducimus beatae neque quis ex iure incidunt dicta alias saepe, delectus, distinctio voluptas nobis enim doloremque?
+    </p>
+    1</mat-tab>
+    <mat-tab label="scond">
+      <h3>this is scond</h3><p>
+        
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum, temporibus ratione esse sint ducimus beatae neque quis ex iure incidunt dicta alias saepe, delectus, distinctio voluptas nobis enim doloremque?
+      </p>
+      1</mat-tab>
+      <mat-tab label="thrid">
+        <h3>this is third</h3><p>
+          
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum, temporibus ratione esse sint ducimus beatae neque quis ex iure incidunt dicta alias saepe, delectus, distinctio voluptas nobis enim doloremque?
+        </p>
+        1</mat-tab>
+</mat-tab-group>
+</div>
+
+
+
+<div class="wrapper">
+  <mat-stepper #stepper labelPosition="bottom" >
+    <mat-step label="personal Details"   [stepControl]="personalDetails" [editable]="false">
+      <form [formGroup]="personalDetails">
+        <mat-form-field class="example-full-width" >
+          <mat-label>Enter your Name</mat-label>
+          <input matInput fromControlName="firstName" required >
+          
+        </mat-form-field>
+        <p>this is step1</p>
+
+     <div>
+      <button mat-raised-button color="primary" matStepperNext >Next</button>
+
+     </div>
+      </form>
+    </mat-step>
+    <mat-step label="contact Details" [stepControl]="contactDetails" [editable]="true">
+      <form [formGroup]="contactDetails">
+        <mat-form-field class="example-full-width">
+          <mat-label>Contact Details</mat-label>
+          <input matInput formControlName="mobileNumber">
+        </mat-form-field>
+        <p>This is step 2</p>
+    
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperPrevious>previous</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step label="personal Details">
+      <p>this is step3</p>
+      <button mat-raised-button color="primary" matStepperPrevious>previous</button>
+      <button mat-raised-button color="primary" (click)="stepper.reset()" >reset</button>
+
+    </mat-step>
+  </mat-stepper>
+
+</div>
+
+
+
+<button mat-stroked-button (click)="openSnackBar()">Show snack-bar</button>
+<br>
+<button mat-raised-button color="primary" (click)="openPopUp()">open</button>
+
+<div>{{result}}</div>
+<br>
+
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Number</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+
+<div class="wrapper">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Legacy form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Standard form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Select me</mat-label>
+      <mat-select>
+        <mat-option value="option">Option</mat-option>
+        <mat-option value="option">Option</mat-option>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <label id="example-radio-group-label">Pick your favorite branch</label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="selectedBranch">
+    <mat-radio-button class="example-radio-button" *ngFor="let b of branches" [value]="b">
+      {{b}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div>Your selected branch: {{selectedBranch}}</div>
+  
+
+  
+
+</div>
